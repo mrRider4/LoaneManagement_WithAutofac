@@ -1,0 +1,3 @@
+﻿namespace LoanManagement.Services.FinancialInformations.Exeptions;
+
+public class InvalidMonthlyIncomeException:Exception;
