@@ -8,14 +8,15 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-string connectionString =
-    builder.Configuration.GetConnectionString("DefaultConnection");
+
 
 // builder.Services.AddDbContext<EfDataContext>
 // (option => option.UseSqlServer(
 //     builder.Configuration.GetConnectionString("DefaultConnection"
 //     )));
 
+string connectionString =
+    builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Host.AddAutofac(connectionString);
 
