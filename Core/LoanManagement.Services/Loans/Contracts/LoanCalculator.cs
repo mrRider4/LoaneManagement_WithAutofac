@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services.Loans.Contracts;
 
-public interface LoanCalculator
+public interface LoanCalculator : Service
 {
     decimal AnnualInterestPercentage(int installmentCount);
 

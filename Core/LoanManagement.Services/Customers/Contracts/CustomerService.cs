@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services.Customers.Contracts;
 
-public interface CustomerService
+public interface CustomerService : Service
 {
     Task<int> Create(AddCustomerDto dto);
     Task Update(UpdateCustomerDto dto);

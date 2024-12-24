@@ -1,5 +1,4 @@
-using LoanManagement.Applications.RequestedLoans.Handlers.ApproveRequestAndCreateInstallments;
-using LoanManagement.Applications.RequestedLoans.Handlers.PayAndDeterminingRequestedLoanStatus;
+using LoanManagement.restApi.Configs.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,53 +8,84 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+string connectionString =
+    builder.Configuration.GetConnectionString("DefaultConnection");
+
+// builder.Services.AddDbContext<EfDataContext>
+// (option => option.UseSqlServer(
+//     builder.Configuration.GetConnectionString("DefaultConnection"
+//     )));
 
 
-builder.Services.AddDbContext<EfDataContext>
-(option => option.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection"
-    )));
+builder.Host.AddAutofac(connectionString);
 
-builder.Services.AddScoped<UnitOfWork, EfUnitOfWork>();
-builder.Services.AddScoped<DateOnlyService, DateOnlyAppService>();
+/////////////////////////////////////////////////
 
-builder.Services.AddScoped<CustomerService, CustomerAppService>();
-builder.Services.AddScoped<CustomerQuery, EfCustomerQuery>();
-builder.Services.AddScoped<CustomerRepository, EfCustomerRepository>();
+// builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+// builder.Host.ConfigureContainer<ContainerBuilder>(b =>
+// {
+//     b.RegisterAssemblyTypes(
+//             typeof(ApplicationAssembly).Assembly,
+//             typeof(ServiceAssembly).Assembly)
+//         .AssignableTo<Service>()
+//         .AsImplementedInterfaces()
+//         .InstancePerLifetimeScope();
+//
+//     b.RegisterAssemblyTypes(
+//             typeof(PersistenceAssembly).Assembly)
+//         .AssignableTo<Repository>()
+//         .AsImplementedInterfaces()
+//         .InstancePerLifetimeScope();
+//
+//     b.RegisterAssemblyTypes(
+//             typeof(PersistenceAssembly).Assembly)
+//         .AssignableTo<IScope>()
+//         .AsImplementedInterfaces()
+//         .InstancePerLifetimeScope();
+// });
 
-builder.Services
-    .AddScoped<FinancialInformationService, FinancialInformationAppService>();
-builder.Services
-    .AddScoped<FinancialInformationQuery, EfFinancialInformationQuery>();
-builder.Services
-    .AddScoped<FinancialInformationRepository,
-        EfFinancialInformationRepository>();
-builder.Services
-    .AddScoped<UpdateCustomerFinancialInformationHandler,
-        UpdateCustomerFinancialInformationCommandHandler>();
+/////////////////////////////////////////////////////////////////
 
-builder.Services.AddScoped<LoanService, LoanAppService>();
-builder.Services.AddScoped<LoanQuery, EfLoanQuery>();
-builder.Services.AddScoped<LoanRepository, EfLoanRepository>();
-builder.Services.AddScoped<LoanCalculator, LoanCalculatorTool>();
-
-builder.Services.AddScoped<RequestedLoanService, RequestedLoanAppService>();
-builder.Services
-    .AddScoped<RequestedLoanRepository, EfRequestedLoanRepository>();
-builder.Services.AddScoped<RequestedLoanQuery, EfRequestedLoanQuery>();
-builder.Services
-    .AddScoped<RequestedLoanCalculator, RequestedLoanCalculatorTool>();
-
-builder.Services.AddScoped<InstallmentService, InstallmentAppService>();
-builder.Services.AddScoped<InstallmentQuery, EfInstallmentQuery>();
-builder.Services.AddScoped<InstallmentRepository, EfInstallmentRepository>();
-
-builder.Services
-    .AddScoped<ApproveRequestAndCreateInstallmentsHandler,
-        ApproveRequestAndCreateInstallmentsCommandHandler>();
-builder.Services
-    .AddScoped<PayAndDeterminingRequestedLoanStatusHandler,
-        PayAndDeterminingRequestedLoanStatusCommandHandler>();
+// builder.Services.AddScoped<UnitOfWork, EfUnitOfWork>();
+// builder.Services.AddScoped<DateOnlyService, DateOnlyAppService>();
+//
+// builder.Services.AddScoped<CustomerService, CustomerAppService>();
+// builder.Services.AddScoped<CustomerQuery, EfCustomerQuery>();
+// builder.Services.AddScoped<CustomerRepository, EfCustomerRepository>();
+//
+// builder.Services
+//     .AddScoped<FinancialInformationService, FinancialInformationAppService>();
+// builder.Services
+//     .AddScoped<FinancialInformationQuery, EfFinancialInformationQuery>();
+// builder.Services
+//     .AddScoped<FinancialInformationRepository,
+//         EfFinancialInformationRepository>();
+// builder.Services
+//     .AddScoped<UpdateCustomerFinancialInformationHandler,
+//         UpdateCustomerFinancialInformationCommandHandler>();
+//
+// builder.Services.AddScoped<LoanService, LoanAppService>();
+// builder.Services.AddScoped<LoanQuery, EfLoanQuery>();
+// builder.Services.AddScoped<LoanRepository, EfLoanRepository>();
+// builder.Services.AddScoped<LoanCalculator, LoanCalculatorTool>();
+//
+// builder.Services.AddScoped<RequestedLoanService, RequestedLoanAppService>();
+// builder.Services
+//     .AddScoped<RequestedLoanRepository, EfRequestedLoanRepository>();
+// builder.Services.AddScoped<RequestedLoanQuery, EfRequestedLoanQuery>();
+// builder.Services
+//     .AddScoped<RequestedLoanCalculator, RequestedLoanCalculatorTool>();
+//
+// builder.Services.AddScoped<InstallmentService, InstallmentAppService>();
+// builder.Services.AddScoped<InstallmentQuery, EfInstallmentQuery>();
+// builder.Services.AddScoped<InstallmentRepository, EfInstallmentRepository>();
+//
+// builder.Services
+//     .AddScoped<ApproveRequestAndCreateInstallmentsHandler,
+//         ApproveRequestAndCreateInstallmentsCommandHandler>();
+// builder.Services
+//     .AddScoped<PayAndDeterminingRequestedLoanStatusHandler,
+//         PayAndDeterminingRequestedLoanStatusCommandHandler>();
 
 
 var app = builder.Build();

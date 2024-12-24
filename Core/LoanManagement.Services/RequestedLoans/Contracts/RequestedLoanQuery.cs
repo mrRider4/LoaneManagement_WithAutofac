@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services.RequestedLoans.Contracts;
 
-public interface RequestedLoanQuery
+public interface RequestedLoanQuery : Repository
 {
     Task<HashSet<GetRequestedLoanDto>> GetAllPending();
 

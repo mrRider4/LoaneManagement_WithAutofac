@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services.RequestedLoans.Contracts;
 
-public interface RequestedLoanRepository
+public interface RequestedLoanRepository : Repository
 {
     Task Add(RequestedLoan requestedLoan);
     Task<bool> IsExistByLoanIdAndCustomerId(int loanId, int customerId);

@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services.Customers.Contracts;
 
-public interface CustomerRepository
+public interface CustomerRepository : Repository
 {
     Task Add(Customer customer);
     Task<bool> IsExistByNationalCode(string nationalCode);

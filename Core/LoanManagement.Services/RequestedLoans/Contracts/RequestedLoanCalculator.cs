@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services.RequestedLoans.Contracts;
 
-public interface RequestedLoanCalculator
+public interface RequestedLoanCalculator : Service
 {
     RequestedLoanStatus DeterminateStatusOnAdd(
         int creditRate);

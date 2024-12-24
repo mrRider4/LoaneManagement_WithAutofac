@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services.Installments.Contracts;
 
-public interface InstallmentQuery
+public interface InstallmentQuery: Repository
 {
     
 }

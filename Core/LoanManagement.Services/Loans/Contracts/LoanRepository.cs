@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services.Loans.Contracts;
 
-public interface LoanRepository
+public interface LoanRepository : Repository
 {
     Task Add(Loan loan);
     Task<bool> IsExistByAmountAndInstallmentCount(decimal amount,

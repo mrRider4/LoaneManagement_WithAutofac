@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services.UnitOfWorks.Contracts;
 
-public interface UnitOfWork
+public interface UnitOfWork : IScope
 {
     public Task Save();
     public Task Begin();

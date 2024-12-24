@@ -2,6 +2,7 @@
 
 global using System.ComponentModel;
 global using System.ComponentModel.DataAnnotations;
+global using Contracts.Interfaces;
 global using LoanManagement.Entities.Customers;
 global using LoanManagement.Entities.FinancialInformations;
 global using LoanManagement.Entities.FinancialInformations.Enums;

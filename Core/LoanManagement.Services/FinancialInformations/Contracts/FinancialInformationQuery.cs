@@ -1,6 +1,5 @@
 ﻿namespace LoanManagement.Services.FinancialInformations.Contracts;
 
-public interface FinancialInformationQuery
+public interface FinancialInformationQuery : Repository
 {
-    
 }

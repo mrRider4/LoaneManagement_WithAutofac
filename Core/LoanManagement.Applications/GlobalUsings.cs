@@ -1,5 +1,6 @@
 ﻿// Global using directives
 
+global using Contracts.Interfaces;
 global using LoanManagement.Applications.Customers.Handler.UpdateCustomerFinancialInformation.Contracts;
 global using LoanManagement.Applications.Customers.Handler.UpdateCustomerFinancialInformation.Contracts.Commands;
 global using LoanManagement.Applications.RequestedLoans.Handlers.ApproveRequestAndCreateInstallments.Contracts;

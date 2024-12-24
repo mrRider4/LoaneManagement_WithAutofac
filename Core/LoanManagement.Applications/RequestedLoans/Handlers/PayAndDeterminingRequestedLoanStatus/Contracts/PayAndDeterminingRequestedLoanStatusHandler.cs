@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Applications.RequestedLoans.Handlers.ApproveRequestAndCreateInstallments.Contracts;
 
-public interface PayAndDeterminingRequestedLoanStatusHandler
+public interface PayAndDeterminingRequestedLoanStatusHandler: Service
 {
     Task Handle(int requestedLoanId);
 }

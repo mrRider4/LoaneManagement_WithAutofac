@@ -1,6 +1,6 @@
 ﻿namespace LoanManagement.Services;
 
-public interface DateOnlyService
+public interface DateOnlyService : Service
 {
     System.DateOnly NowUtc { get; }
 }

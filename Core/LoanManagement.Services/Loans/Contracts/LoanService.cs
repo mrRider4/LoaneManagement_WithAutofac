@@ -2,7 +2,7 @@
 
 namespace LoanManagement.Services.Loans.Contracts;
 
-public interface LoanService
+public interface LoanService : Service
 {
     Task<int> Create(AddLoanDto dto);
 }

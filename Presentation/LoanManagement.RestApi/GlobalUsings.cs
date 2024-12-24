@@ -1,9 +1,17 @@
 // Global using directives
 
+global using System.Reflection;
+global using Autofac;
+global using Autofac.Extensions.DependencyInjection;
+global using Contracts.Interfaces;
+global using LoanManagement.Applications;
 global using LoanManagement.Applications.Customers.Handler.UpdateCustomerFinancialInformation;
 global using LoanManagement.Applications.Customers.Handler.UpdateCustomerFinancialInformation.Contracts;
 global using LoanManagement.Applications.Customers.Handler.UpdateCustomerFinancialInformation.Contracts.Commands;
+global using LoanManagement.Applications.RequestedLoans.Handlers.ApproveRequestAndCreateInstallments;
 global using LoanManagement.Applications.RequestedLoans.Handlers.ApproveRequestAndCreateInstallments.Contracts;
+global using LoanManagement.Applications.RequestedLoans.Handlers.PayAndDeterminingRequestedLoanStatus;
+global using LoanManagement.Persistence.Ef;
 global using LoanManagement.Persistence.Ef.Customers;
 global using LoanManagement.Persistence.Ef.EfContext;
 global using LoanManagement.Persistence.Ef.EfUnitOfWorks;
